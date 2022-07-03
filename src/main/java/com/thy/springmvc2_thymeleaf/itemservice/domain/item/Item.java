@@ -1,10 +1,14 @@
 package com.thy.springmvc2_thymeleaf.itemservice.domain.item;
 
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Item {
 
     private Long id;
@@ -13,7 +17,7 @@ public class Item {
     private Integer quantity;
 
     /** 판매여부 */
-    private boolean open; 
+    private Boolean open;
     
     /** 등록 지역 */
     private List<String> regions;
@@ -23,9 +27,6 @@ public class Item {
     
     /** 배송 방식 */
     private String deliveryCode;
-
-    public Item() {
-    }
 
     public Item(String name, Integer price, Integer quantity) {
         this.name = name;

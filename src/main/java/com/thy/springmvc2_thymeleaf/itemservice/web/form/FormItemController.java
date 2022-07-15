@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -18,6 +20,21 @@ import java.util.List;
 public class FormItemController {
 
     private final ItemRepository itemRepository;
+
+    /**
+     * ModelAttribute에 자동으로 "regions"가 들어가게 한다.
+     * 이때 어떤 호출이건 상관없이 들어간다.
+     * 성능면에선 어딘가에 만들어둔 뒤에 호출하는 방식이 좋다.(이정도론 성능차이는 딱히없다...ㅎ)
+     */
+    @ModelAttribute("regions")
+    public Map<String, Object> regions() {
+        Map<String, Object> regions = new LinkedHashMap<>();
+        regions.put("SEOUL", "서울");
+        regions.put("BUSAN", "부산");
+        regions.put("JEJU", "제주");
+
+        return regions;
+    }
 
     @GetMapping
     public String items(Model model) {

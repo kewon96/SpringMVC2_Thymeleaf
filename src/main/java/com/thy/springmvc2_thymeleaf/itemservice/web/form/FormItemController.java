@@ -2,6 +2,7 @@ package com.thy.springmvc2_thymeleaf.itemservice.web.form;
 
 import com.thy.springmvc2_thymeleaf.itemservice.domain.item.Item;
 import com.thy.springmvc2_thymeleaf.itemservice.domain.item.ItemRepository;
+import com.thy.springmvc2_thymeleaf.itemservice.domain.item.ItemType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,11 @@ public class FormItemController {
         regions.put("JEJU", "제주");
 
         return regions;
+    }
+
+    @ModelAttribute("itemTypes")
+    public ItemType[] itemTypes() {
+        return ItemType.values();
     }
 
     @GetMapping

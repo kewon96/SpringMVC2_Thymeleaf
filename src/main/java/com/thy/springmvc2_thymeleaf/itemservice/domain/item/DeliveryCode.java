@@ -1,6 +1,8 @@
 package com.thy.springmvc2_thymeleaf.itemservice.domain.item;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -8,7 +10,7 @@ import lombok.Setter;
  * NORMAL: 일반 배송
  * SLOW: 느린 배송
  */
-@Getter @Setter
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class DeliveryCode {
 
     /** 시스템에서 전달하는 값 */
